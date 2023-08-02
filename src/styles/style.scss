@@ -1,0 +1,13 @@
+@import '../index.scss';
+
+.container{
+    max-width: 1200px;
+    margin: auto;
+}
+
+main{
+    background-color: $very-light-gray;
+    min-height: calc(100vh - 96px);
+    padding-top: 3rem;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.192);
+}

@@ -1,0 +1,95 @@
+@import '../../index.scss';
+@import '../../styles/style.scss';
+
+.postContainer{
+    @extend .container;
+
+    button{
+        background-color: transparent;
+        padding: .5rem 3rem;
+        margin-bottom: 4rem;
+        font-family: $primary-font;
+        font-weight: 600;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(95, 93, 93, 0.462);
+        outline: none;
+        border: none;
+
+        &:hover{
+            cursor: pointer;
+            transition: .5s;
+            background-color: rgb(255, 255, 255);
+        }
+    }
+}
+
+.countryContainer{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 3rem;
+ 
+    .img{
+        width: 50%;
+        img{
+            width: 100%;
+        }
+    }
+
+    h2{
+        font-size: 2rem;
+        font-weight: 700;
+    }
+
+    .infos_container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 3rem;
+        width: 100%;
+        flex: 1;
+    }
+
+    .infos{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        li{
+            font-weight: 700;
+            span{
+                font-weight: 500;
+            }
+        }
+
+        &_item{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
+}
+
+.borderCountries{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+
+    h3{
+        font-family: $primary-font;
+        font-weight: 700;
+        font-size: 1rem;
+    }
+
+    &_item{
+        background-color: transparent;
+        padding: .5rem 2rem;
+        font-family: $primary-font;
+        font-weight: 600;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(95, 93, 93, 0.462);
+        outline: none;
+        border: none;
+    }
+}

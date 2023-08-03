@@ -1,4 +1,3 @@
-import Header from "./components/Header";
 import "./styles/style.scss";
 import data from "./data.json";
 import { useState } from "react";

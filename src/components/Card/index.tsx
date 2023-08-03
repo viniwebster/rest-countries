@@ -8,7 +8,7 @@ export default function Card({ flags, name, region, population, capital } :ICoun
   <Link style={{textDecoration: 'none', color: 'black'}} to={`/${name}`}>
     <div className={style.card}>
         <div className={style.img}>
-            <img src={`${flags}`} alt={`Bandeira ${name}`}/>           
+            <img src={`${flags.svg}`} alt={`Bandeira ${name}`}/>           
         </div>
         <ul className={style.infos}>
             <h2 className={style.infos_titulo}>{name}</h2>

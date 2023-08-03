@@ -8,3 +8,15 @@
     border-radius: 5px;
     box-shadow: 0px 0px 20px rgba(95, 93, 93, 0.222);
 }
+
+@media screen and (max-width: 800px) {
+    .select{
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .select{
+        width: 100%;
+    }
+}

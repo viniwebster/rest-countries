@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import style from './Post.module.scss';
-import { IICountry } from '../../types/Coutry';
+import { ICountry } from '../../types/ICountry';
 
-export default function Post({flags, name, nativeName, population, region, subregion, capital, currencies, languages, topLevelDomain, borderCountries}: any) {
+export default function Post({flags, name, nativeName, population, region, subregion, capital, currencies, languages, topLevelDomain, borders}: ICountry) {
     return (
     <section className={style.postContainer}>
         <Link to={'/'}>
@@ -12,7 +12,7 @@ export default function Post({flags, name, nativeName, population, region, subre
         </Link>
         <div className={style.countryContainer}>
             <div className={style.img}>
-              <img src={flags} alt={`Flag from ${flags}`}/>
+              <img src={flags.svg} alt={`Flag from ${flags}`}/>
             </div>
             <div className={style.infos_container}>
                 <h2>{name}</h2>
@@ -26,17 +26,17 @@ export default function Post({flags, name, nativeName, population, region, subre
                     </ul>   
                     <ul className={style.infos_item}>
                         <li>Top Level Domain: <span>{topLevelDomain}</span></li>
-                        <li>Currencies: <span>{currencies}</span></li>
-                        <li>Languages: <span>{languages}</span></li>
+                        <li>Currencies: <span>{currencies![0].name}</span></li>
+                        <li>Languages: <span>{languages[0].name}</span></li>
                     </ul>
                 </div>
             <ul className={style.borderCountries}>
-                <h3>Border Countries:</h3>
-            {borderCountries ? 
-                    borderCountries.map((country: any) =>
+            <h3>Border Countries:</h3>
+            {borders ? 
+                    borders.map((country: any) =>
                         <li key={country} className={style.borderCountries_item}>{country}</li>
                     ) 
-                : ''         
+                : `Don't have`
             }
             </ul>
             </div>

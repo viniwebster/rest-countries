@@ -2,11 +2,12 @@ import Input from "../../components/Input";
 import DropDown from "../../components/DropDown";
 import Card from "../../components/Card";
 import style from "./HomePage.module.scss";
+import { ICountry } from "../../types/ICountry";
 
 interface PropsHomePage {
   filter: (selection: string) => void;
   find: (input: string) => void;
-  countrys: any[];
+  countrys: ICountry[];
 }
 
 export default function HomePage({ filter, find, countrys }: PropsHomePage) {
@@ -22,14 +23,7 @@ export default function HomePage({ filter, find, countrys }: PropsHomePage) {
             <li>
               <Card
                 key={item.name}
-                flags={item.flags.svg}
-                name={item.name}
-                capital={item.capital}
-                population={item.population}
-                region={item.region}
-                nativeName={item.languages.nativeName}
-                subRegion={item.subRegion}
-                topLevelDomain={item.topLevelDomain}
+                {...item}
               />
             </li>
           ))}

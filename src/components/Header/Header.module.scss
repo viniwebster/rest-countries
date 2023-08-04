@@ -3,6 +3,7 @@
 .header{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 2rem 2rem;
     a {
         text-decoration: none;
@@ -23,5 +24,15 @@
         font-family: $primary-font;
         font-size: 1rem;
         font-weight: 600;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .header{
+        a{
+            .title{
+                font-size: 1.25rem;
+            }
+        }     
     }
 }

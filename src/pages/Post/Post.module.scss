@@ -3,6 +3,8 @@
 
 .postContainer{
     @extend .container;
+    padding: 0 2rem;
+    box-sizing: border-box;
 
     button{
         background-color: transparent;
@@ -91,5 +93,20 @@
         box-shadow: 0px 0px 10px rgba(95, 93, 93, 0.462);
         outline: none;
         border: none;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .countryContainer{
+        flex-direction: column;
+
+        .img{
+            width: 100%;
+        }
+    }
+
+    .infos{
+        flex-wrap: wrap;
+        gap: 2rem;
     }
 }

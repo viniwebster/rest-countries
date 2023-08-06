@@ -8,14 +8,15 @@ interface PropsHomePage {
   filter: (selection: string) => void;
   find: (input: string) => void;
   countrys: ICountry[];
+  setData: React.Dispatch<React.SetStateAction<ICountry[]>>
 }
 
-export default function HomePage({ filter, find, countrys }: PropsHomePage) {
+export default function HomePage({ filter, find, countrys, setData }: PropsHomePage) {
   return (
     <>
       <section className={`container ${style.search}`}>
         <Input placeholder="Search for a country..." find={find} />
-        <DropDown filter={filter} />
+        <DropDown filter={filter} setData={setData}/>
       </section>
       <section className="container">
         <ul className={style.cards}>

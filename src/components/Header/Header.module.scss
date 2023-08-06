@@ -16,10 +16,29 @@
     }
 }
 
+.headerDark{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 2rem;
+    a {
+        text-decoration: none;
+        .title{
+            font-size: 2rem;
+            font-family: $primary-font;
+            font-weight: 700;
+            color: white;
+        }
+    }
+}
+
+
+
 .darkMode{
     display: flex;
     align-items: center;
     gap: 12px;
+    cursor: pointer;
     p{
         font-family: $primary-font;
         font-size: 1rem;
@@ -28,7 +47,7 @@
 }
 
 @media screen and (max-width: 480px) {
-    .header{
+    .header, .headerDark{
         a{
             .title{
                 font-size: 1.25rem;

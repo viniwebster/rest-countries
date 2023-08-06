@@ -5,13 +5,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import CountryPage from "./pages/CountryPage";
 import PaginaPadrao from "./pages/PaginaPadrao";
+import { ICountry } from "./types/ICountry";
 
 function App() {
-  const [countrys, setData] = useState(data);
+  const [countrys, setData] = useState<ICountry[]>(data);
 
-  function find(input: string) {
+  function search(input: string) {
     const filter = data.filter((country) =>
-      country.name.toLowerCase().includes(input)
+      country.name.toLowerCase().includes(input.toLowerCase())
     );
     setData(filter);
   }
@@ -21,16 +22,20 @@ function App() {
     setData(filter);
   }
 
+  const [ darkMode, setDarkMode ] = useState(false);
+
   return (
     <>
+    <div className={`${darkMode ? 'darkMode' : ''}`}>
       <BrowserRouter>
           <Routes>
-            <Route path="/" element={<PaginaPadrao />}>
-              <Route index element={<HomePage filter={filter} find={find} countrys={countrys} />}/>
+            <Route path="/" element={<PaginaPadrao darkMode={darkMode} setDarkMode={setDarkMode}/>}>
+              <Route index element={<HomePage filter={filter} find={search} countrys={countrys} setData={setData}/>}/>
               <Route path="/:name" element={<CountryPage />}/>
             </Route>
           </Routes>
       </BrowserRouter>
+    </div>
     </>
   );
 }

@@ -1,0 +1,22 @@
+@import '../../index.scss';
+
+.darkMode{
+    background-color: $very-dark-color;
+    color: $very-light-gray;
+    transition: .1s;
+    
+    div, input, select, main{
+        transition: .1s;
+        background-color: $very-dark-color;
+        color: $very-light-gray;
+    }
+
+    button{
+        background-color: $very-dark-color;
+        color: white;
+
+        &:hover{
+            background-color: rgb(67, 66, 66);
+        }
+    }
+}

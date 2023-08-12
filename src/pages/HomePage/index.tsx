@@ -5,25 +5,24 @@ import style from "./HomePage.module.scss";
 import { ICountry } from "../../types/ICountry";
 
 interface PropsHomePage {
-  filter: (selection: string) => void;
-  find: (input: string) => void;
+  setFilter: React.Dispatch<React.SetStateAction<string>>;
   countrys: ICountry[];
-  setData: React.Dispatch<React.SetStateAction<ICountry[]>>
+  search: string;
+  setSearch: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export default function HomePage({ filter, find, countrys, setData }: PropsHomePage) {
+export default function HomePage({ countrys, setFilter, search, setSearch }: PropsHomePage) {
   return (
     <>
       <section className={`container ${style.search}`}>
-        <Input placeholder="Search for a country..." find={find} />
-        <DropDown filter={filter} setData={setData}/>
+        <Input placeholder="Search for a country..." search={search} setSearch={setSearch} />
+        <DropDown setFilter={setFilter}/>
       </section>
       <section className="container">
         <ul className={style.cards}>
-          {countrys.map((item) => (
-            <li>
+          {countrys.map((item, index) => (
+            <li key={index}>
               <Card
-                key={item.name}
                 {...item}
               />
             </li>

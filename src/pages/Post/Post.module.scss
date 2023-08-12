@@ -94,6 +94,11 @@
         outline: none;
         border: none;
     }
+
+    a{
+        text-decoration: none;
+        color: black;
+    }
 }
 
 @media screen and (max-width: 768px){

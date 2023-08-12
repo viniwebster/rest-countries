@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import Header from "../../components/Header";
 import { Outlet } from "react-router-dom";
 import './Darkmode.scss';
 
-interface PaginaPadrao {
+interface PropsPaginaPadrao {
   setDarkMode: React.Dispatch<React.SetStateAction<boolean>>
   darkMode: boolean
 }
 
-export default function PaginaPadrao({ darkMode, setDarkMode }: PaginaPadrao) {
+export default function PaginaPadrao({ darkMode, setDarkMode }: PropsPaginaPadrao) {
    
   return (
     <>

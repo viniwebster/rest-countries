@@ -1,17 +1,14 @@
 import React from 'react';
 import style from './DropDown.module.scss';
-import { ICountry } from '../../types/ICountry';
-import data from '../../data.json';
 
 interface PropsDropdown {
-  filter: (selection: string) => void
-  setData: React.Dispatch<React.SetStateAction<ICountry[]>>
+  setFilter: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export default function DropDown({ filter, setData } :PropsDropdown) {
+export default function DropDown({ setFilter } :PropsDropdown) {
   return (
-    <select className={style.select} onChange={(e) => filter(e.target.value)}>
-        <option disabled> Filter by Region </option> 
+    <select className={style.select} onChange={(e) => setFilter(e.target.value)}>
+        <option value=""> All </option> 
         <option value="Africa">Africa</option>
         <option value="Americas">America</option>
         <option value="Asia">Asia</option>

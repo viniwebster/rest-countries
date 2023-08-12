@@ -1,8 +1,14 @@
 import { Link } from 'react-router-dom';
 import style from './Post.module.scss';
 import { ICountry } from '../../types/ICountry';
+import data from '../../data.json';
 
 export default function Post({flags, name, nativeName, population, region, subregion, capital, currencies, languages, topLevelDomain, borders}: ICountry) {
+    
+    function goToBorderCountry(country: string): ICountry | undefined {
+        return data.find(item => item.alpha3Code === country);
+    }
+    
     return (
     <section className={style.postContainer}>
         <Link to={'/'}>
@@ -33,10 +39,12 @@ export default function Post({flags, name, nativeName, population, region, subre
             <ul className={style.borderCountries}>
             <h3>Border Countries:</h3>
             {borders ? 
-                    borders.map((country: any) =>
-                        <li key={country} className={style.borderCountries_item}>{country}</li>
+                    borders.map((country, index) =>
+                    <Link to={`/${goToBorderCountry(country)?.name!}`}>
+                        <li key={index} className={style.borderCountries_item}>{country}</li>
+                    </Link>
                     ) 
-                : `Don't have`
+                : `Don't have` 
             }
             </ul>
             </div>

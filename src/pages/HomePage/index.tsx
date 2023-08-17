@@ -20,13 +20,17 @@ export default function HomePage({ countrys, setFilter, search, setSearch }: Pro
       </section>
       <section className="container">
         <ul className={style.cards}>
-          {countrys.map((item, index) => (
+          {
+          countrys.length > 0 
+          ? countrys.map((item, index) => (
             <li key={index}>
               <Card
                 {...item}
               />
             </li>
-          ))}
+          )) 
+          : <h2>Country not found</h2>
+          }
         </ul>
       </section>
     </>

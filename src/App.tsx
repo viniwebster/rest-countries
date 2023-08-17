@@ -12,9 +12,8 @@ function App() {
   const [order, setOrder] = useState('');
   const [search, setSearch] = useState('');
 
-  function searchByText(input: string) {
-    const regex = new RegExp(search, 'i');
-    return regex.test(input)
+  function searchByText(filter: string) {
+    return filter.toLowerCase().includes(search)
   }
 
   function filterByRegion(region: string) {

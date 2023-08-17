@@ -5,9 +5,9 @@ import data from "../../data.json";
 import Post from "../Post";
 
 export default function CountryPage() {
-  const parametros = useParams();
+  const params = useParams();
   const dataCountries: ICountry[] = data
-  const dados = dataCountries.find((item) => item.name === parametros.name);
+  const dados = dataCountries.find((item) => item.name === params.name);
 
   return (
     dados !== undefined 

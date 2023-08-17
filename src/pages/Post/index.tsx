@@ -1,21 +1,22 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import style from './Post.module.scss';
 import { ICountry } from '../../types/ICountry';
 import data from '../../data.json';
+import Button from '../../components/Button';
 
 export default function Post({flags, name, nativeName, population, region, subregion, capital, currencies, languages, topLevelDomain, borders}: ICountry) {
     
+    const navigate = useNavigate();
+
     function goToBorderCountry(country: string): ICountry | undefined {
         return data.find(item => item.alpha3Code === country);
     }
     
     return (
     <section className={style.postContainer}>
-        <Link to={'/'}>
-          <button>
-              Back
-          </button>
-        </Link>
+          <Button onClick={() => navigate(-1)}>
+            Back
+          </Button>
         <div className={style.countryContainer}>
             <div className={style.img}>
               <img src={flags.svg} alt={`Flag from ${flags}`}/>
@@ -41,7 +42,11 @@ export default function Post({flags, name, nativeName, population, region, subre
             {borders ? 
                     borders.map((country, index) =>
                     <Link to={`/${goToBorderCountry(country)?.name!}`}>
-                        <li key={index} className={style.borderCountries_item}>{country}</li>
+                        <li key={index} className={style.borderCountries_item}>
+                            <Button>
+                                {country}
+                            </Button>    
+                        </li>
                     </Link>
                     ) 
                 : `Don't have` 
